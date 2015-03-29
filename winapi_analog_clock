@@ -24,7 +24,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 	
 	switch(Message) {
 		case WM_TIMER:
-			if(flag_move){
+			if(flag_move){ 
 				t = time(NULL);
 				t_m = localtime(&t);	
 				_sec = t_m->tm_sec; 

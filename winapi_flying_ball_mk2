@@ -3,7 +3,7 @@
 
 #define _TIMER_TICK 1
 
-#include "physics.h"
+#include "flying_ball_class.h"
 
 BALL bl[5];
 bool move = true;

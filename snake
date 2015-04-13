@@ -3,60 +3,60 @@
 #include <stdlib.h>
 #include <math.h>
 
-//#include "additionals.h"
+#include "additionals.h"
 
 class SnakeGame 
 {
 	static const int UP = 0, RIGHT = 1, BOT = 2, LEFT = 3;
-	public: static int xMaxSize, yMaxSize;
+	static int xMaxSize, yMaxSize;
 	
-	public: class eat
+	class eat
 	{
-		public: static int x, y;
+		int x, y;
 		
-		public: void NewPos()
+		void NewPos()
 		{
-			this->x = rand()%SnakeGame.xMaxSize;
-			this->y = rand()%SnakeGame.yMaxSize;
+			this->x = rand()%xMaxSize;
+			this->y = rand()%yMaxSize;
 			//for()
 		}
 	};
 	
-	public: class snake
+	class snake
 	{
-		public: double speed;
-		public: static int size, mem[1024][2];
+		double speed;
+		static int size, mem[1024][2];
 		
-		public: class head
+		class head
 		{
-			public: int x, y, direction;
+			int x, y, direction;
 		};
 		
-		public: class part
+		class part
 		{
-			public: int x, y;
+			int x, y;
 		};
 		
-		public: void move(int dir)
+		void smove(int dir)
 			{
 				switch(dir)
 				{
-					case UP: 	this->head.y--; break;
-					case BOT: 	this->y++; break;
-					case RIGHT: this->x++; break;
-					case LEFT: 	this->x--; break;
+					case UP:	this->head.y--; break;
+					case BOT: 	this->head.y++; break;
+					case RIGHT: this->head.x++; break;
+					case LEFT: 	this->head.x--; break;
 					default: break;
 				}
-				if(this->x == eat.x && this->y == eat.y)
+				if(this->head.x == SnakeGame.eat.x && this->head.y == SnakeGame.eat.y)
 				{
-					SnakeGame.snake.size++;
+					this->size++;
 				}
-				mem[size][0] = this->x;
-				mem[size][1] = this->y;
+				mem[size][0] = this->head.x;
+				mem[size][1] = this->head.y;
 			}
 	};
 	
-	SnakeGame()//constructor
+	/*SnakeGame()//constructor
 	{	
 		this->snake.size = 0;
 		this->snake.speed = 1;
@@ -64,8 +64,8 @@ class SnakeGame
 		this->snake.head.x = rand()%xMaxSize;
 		this->snake.head.y = rand()%yMaxSize;
 		this->eat.NewPos();
-	}
-	~SnakeGame()//destructor
+	}*/
+	/*~SnakeGame()//destructor
 	{
-	}	
+	}	*/
 };

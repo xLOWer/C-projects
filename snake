@@ -7,12 +7,12 @@
 
 class SnakeGame 
 {
-	static const int UP = 0, RIGHT = 1, BOT = 2, LEFT = 3;
-	static int xMaxSize, yMaxSize;
+	public: static const int UP = 0, RIGHT = 1, BOT = 2, LEFT = 3;
+	public: static int xMaxSize, yMaxSize;
 	
-	class eat
+	public: class eat
 	{
-		int x, y;
+		public: int x, y;
 		
 		void NewPos()
 		{
@@ -22,22 +22,22 @@ class SnakeGame
 		}
 	};
 	
-	class snake
+	public: class snake
 	{
-		double speed;
-		static int size, mem[1024][2];
+		public: double speed;
+		public: static int size, mem[1024][2];
 		
-		class head
+		public: class head
 		{
-			int x, y, direction;
+			public: int x, y, direction;
 		};
 		
-		class part
+		public: class part
 		{
-			int x, y;
+			public: int x, y;
 		};
 		
-		void smove(int dir)
+		public: void smove(int dir)
 			{
 				switch(dir)
 				{

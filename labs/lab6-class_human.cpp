@@ -1,38 +1,38 @@
 #include "windows.h"
 #include <locale.h>
 
-class HUMAN{//класс HUMAN
+class HUMAN//РєР»Р°СЃСЃ HUMAN{
 	public: char fname[255], lname[255], patromync[255];
 	int yob;//year of birth :)
 };
 
 int compare(const void *i, const void *j){
-	return ((HUMAN*)i)->yob - ((HUMAN*)j)->yob;	//функция для сравнения значений 
+	return ((HUMAN*)i)->yob - ((HUMAN*)j)->yob;	//С„СѓРЅРєС†РёСЏ РґР»СЏ СЃСЂР°РІРЅРµРЅРёСЏ Р·РЅР°С‡РµРЅРёР№ 
 }
 
 int main(void){
-	setlocale(LC_ALL,"RUS");//расширяем ascii до русского языка
+	setlocale(LC_ALL,"RUS");//СЂР°СЃС€РёСЂСЏРµРј ascii РґРѕ СЂСѓСЃСЃРєРѕРіРѕ СЏР·С‹РєР°
 	
 	int i = 0, j = 0, count = 0;
-	HUMAN human[2][255];//2 массива по 255 человек
-	FILE *file_in = fopen("C://c-file", "r");//открываем дял чтения файл
+	HUMAN human[2][255];//2 РјР°СЃСЃРёРІР° РїРѕ 255 С‡РµР»РѕРІРµРє
+	FILE *file_in = fopen("C://c-file", "r");//РѕС‚РєСЂС‹РІР°РµРј РґСЏР» С‡С‚РµРЅРёСЏ С„Р°Р№Р»
 	
-	while (!feof(file_in)){//читаем пока не достигаем конца файла
+	while (!feof(file_in))//С‡РёС‚Р°РµРј РїРѕРєР° РЅРµ EOF{
 		fscanf(file_in, "%s %s %s %d", &human[0][i].fname, 
 									   &human[0][i].lname, 
 									   &human[0][i].patromync, 
-									   &human[0][i].yob);//заполняем массив
-		count++;//увеличиваем счётчики
+									   &human[0][i].yob);//Р·Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ
+		count++;
 		i++;
 	}
 	
-	memcpy(human[1], human[0], sizeof(human[1]));//копируем первый массив во второй
-	qsort(human[1], count, sizeof(HUMAN), compare);//сортируем
+	memcpy(human[1], human[0], sizeof(human[1]));//РєРѕРїРёСЂСѓРµРј РїРµСЂРІС‹Р№РјР°СЃСЃРёРІ РІРѕ РІС‚РѕСЂРѕР№
+	qsort(human[1], count, sizeof(HUMAN), compare);//СЃРѕСЂС‚РёСЂСѓРµРј
 	
 	for (i = 0; i < count; i++){
 		printf("%s %s %s %d\n", human[1][i].fname, 
 								human[1][i].lname, 
 								human[1][i].patromync, 
-								human[1][i].yob);//выводим отсортированный массив
+								human[1][i].yob);//РІС‹РІРѕРґРёРј РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ
 	}
 }

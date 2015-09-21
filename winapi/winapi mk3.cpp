@@ -19,11 +19,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT Message, WPARAM wParam, LPARAM lParam) 
 	bool flag = false;
 	switch(Message) {
 		case WM_DESTROY: PostQuitMessage(0); break;
-		case WM_CREATE: //СЃРѕР·РґР°С‘Рј С„РѕСЂРјСѓ Рё РїР°РЅРµР»СЊ
+		case WM_CREATE: //создаём форму и панель
     		brushWhite = (HBRUSH)GetStockObject(WHITE_BRUSH); 
     		brushBlack  = (HBRUSH)GetStockObject(BLACK_BRUSH); 
     		return 0; 
-		case WM_KEYDOWN: {//Р»РѕРІРёРј РЅР°Р¶Р°С‚РёРµ РєР»Р°РІРёС€
+		case WM_KEYDOWN: {//ловим нажатие клавиш
 		
 			switch (wParam)
 			{
